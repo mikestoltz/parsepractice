@@ -8,20 +8,22 @@ exports.index = function(req, res){
 
     var result = []
   //res.render('index', { title: 'Express' });
-  request('http://www.dickssportinggoods.com/family/index.jsp?categoryId=13299870&pg=1&ppp=150', function (error, response, body) {
+  request('http://www.walmart.com/browse/computers/desktop-computers/3944_3951_132982/?;ic=48_0&;ref=+428236&amp;catNavId=3951&browsein=true&povid=P1171-C1110.2784+1455.2776+1115.2956-L16', function (error, response, body) {
+    console.log(response.statusCode)
   if (!error && response.statusCode == 200) {
     var $ = cheerio.load(body)
-    , products = $('#productLoopUL .prodloopProduct .prodloopText').toArray()
-
+    , products = $('.item .prodInfo').toArray()
     products.forEach(function(_pro){
         var pro = $(_pro)
-        , title = pro.children().first().text().trim()
-        , href  = pro.children().first().children().first().attr('href')
-        , price = pro.children().eq(1).text()
-    
+        , title = pro.find('.prodInfoBox').children().eq(1).text().trim()
+        , href  = pro.find('a').attr('href')
+        , modelNo = pro.find('.prodInfoBox').find('.ModelNo').text()
+        , price = pro.find('.OnlinePriceAvail').find('.bigPriceText2').text() + pro.find('.OnlinePriceAvail').find('.smallPriceText2').text()
+
         var product = {
             title:title,
             href:href,
+            modelNo: modelNo,
             price:price
         }
         result.push(product)
