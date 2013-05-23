@@ -8,7 +8,7 @@ exports.index = function(req, res){
 
     var result = []
   //res.render('index', { title: 'Express' });
-  request('http://www.walmart.com/browse/computers/desktop-computers/3944_3951_132982/?;ic=48_0&;ref=+428236&amp;catNavId=3951&browsein=true&povid=P1171-C1110.2784+1455.2776+1115.2956-L16', function (error, response, body) {
+  request('http://www.walmart.com/browse/tv-video/tvs/3944_1060825_447913/?_refineresult=true&ic=32_0&path=0%3A3944&povid=cat3944-env202889-moduleB122911-lLinkBestSellersShelf10UpShopByCategory1TVs', function (error, response, body) {
     console.log(response.statusCode)
   if (!error && response.statusCode == 200) {
     var $ = cheerio.load(body)
