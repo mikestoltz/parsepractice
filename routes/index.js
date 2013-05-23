@@ -19,12 +19,14 @@ exports.index = function(req, res){
         , href  = pro.find('a').attr('href')
         , modelNo = pro.find('.prodInfoBox').find('.ModelNo').text()
         , price = pro.find('.OnlinePriceAvail').find('.bigPriceText2').text() + pro.find('.OnlinePriceAvail').find('.smallPriceText2').text()
+        , description = pro.find('.ProdDescContainer').find('.ProdDesc').text()
 
         var product = {
             title:title,
             href:href,
             modelNo: modelNo,
-            price:price
+            price:price,
+            description:description
         }
         result.push(product)
         })
