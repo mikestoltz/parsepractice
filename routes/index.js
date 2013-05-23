@@ -12,13 +12,13 @@ exports.index = function(req, res){
     console.log(response.statusCode)
   if (!error && response.statusCode == 200) {
     var $ = cheerio.load(body)
-    , products = $('.item .prodInfo').toArray()
+    , products = $('.item').toArray()
     products.forEach(function(_pro){
         var pro = $(_pro)
         , title = pro.find('.prodInfoBox').children().eq(1).text().trim()
         , href  = pro.find('a').attr('href')
         , modelNo = pro.find('.prodInfoBox').find('.ModelNo').text()
-        , price = pro.find('.OnlinePriceAvail').find('.prefixPriceText2').text() + pro.find('.OnlinePriceAvail').find('.bigPriceText2').text() + pro.find('.OnlinePriceAvail').find('.smallPriceText2').text()
+        , price = pro.find('.prodInfo').find('.prefixPriceText2').text() + pro.find('.prodInfo').find('.bigPriceText2').text() + pro.find('.prodInfo').find('.smallPriceText2').text()
         , description = pro.find('.ProdDescContainer').find('.ProdDesc').text()
         , image = pro.find('img').attr('src')
 
