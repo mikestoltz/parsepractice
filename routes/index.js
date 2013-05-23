@@ -21,14 +21,16 @@ exports.index = function(req, res){
         , price = pro.find('.prodInfo').find('.prefixPriceText2').text() + pro.find('.prodInfo').find('.bigPriceText2').text() + pro.find('.prodInfo').find('.smallPriceText2').text()
         , description = pro.find('.ProdDescContainer').find('.ProdDesc').text()
         , image = pro.find('img').attr('src')
+        , rating = pro.find('.wmStars').find('div').attr('title')
 
         var product = {
-            title:title,
-            href:href,
+            title: title,
+            href: href,
             modelNo: modelNo,
-            price:price,
-            description:description,
-            image: image
+            price: price,
+            description: description,
+            image: image,
+            rating: rating
         }
         result.push(product)
         })
