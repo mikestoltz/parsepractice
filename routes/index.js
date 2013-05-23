@@ -18,7 +18,7 @@ exports.index = function(req, res){
         , title = pro.find('.prodInfoBox').children().eq(1).text().trim()
         , href  = pro.find('a').attr('href')
         , modelNo = pro.find('.prodInfoBox').find('.ModelNo').text()
-        , price = pro.find('.OnlinePriceAvail').find('.bigPriceText2').text() + pro.find('.OnlinePriceAvail').find('.smallPriceText2').text()
+        , price = pro.find('.OnlinePriceAvail').find('.prefixPriceText2').text() + pro.find('.OnlinePriceAvail').find('.bigPriceText2').text() + pro.find('.OnlinePriceAvail').find('.smallPriceText2').text()
         , description = pro.find('.ProdDescContainer').find('.ProdDesc').text()
 
         var product = {
