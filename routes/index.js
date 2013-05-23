@@ -22,6 +22,7 @@ exports.index = function(req, res){
         , description = pro.find('.ProdDescContainer').find('.ProdDesc').text()
         , image = pro.find('img').attr('src')
         , rating = pro.find('.wmStars').find('div').attr('title')
+        , reviews = pro.find('.BodyS').find('a').text()
 
         var product = {
             title: title,
@@ -30,7 +31,8 @@ exports.index = function(req, res){
             price: price,
             description: description,
             image: image,
-            rating: rating
+            rating: rating,
+            reviews: reviews
         }
         result.push(product)
         })
