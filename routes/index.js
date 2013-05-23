@@ -20,13 +20,15 @@ exports.index = function(req, res){
         , modelNo = pro.find('.prodInfoBox').find('.ModelNo').text()
         , price = pro.find('.OnlinePriceAvail').find('.prefixPriceText2').text() + pro.find('.OnlinePriceAvail').find('.bigPriceText2').text() + pro.find('.OnlinePriceAvail').find('.smallPriceText2').text()
         , description = pro.find('.ProdDescContainer').find('.ProdDesc').text()
+        , image = pro.find('img').attr('src')
 
         var product = {
             title:title,
             href:href,
             modelNo: modelNo,
             price:price,
-            description:description
+            description:description,
+            image: image
         }
         result.push(product)
         })
